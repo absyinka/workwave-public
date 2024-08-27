@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wavy-deployments
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: wavy
+  template:
+    metadata:
+      labels:
+        app: wavy
+    spec:
+      containers:
+        - name: wavy-container
+          image: absyinka/workwave:xwave
+          ports:
+            - containerPort: 80
